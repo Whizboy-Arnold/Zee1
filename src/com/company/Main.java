@@ -14,11 +14,11 @@ public class Main {
         return new Integer[]{Arrays.asList(ret).remove((int) ((Math.random() * (inset - offset)) + inset))};
     }
     public static void handle(Integer [] split){
-        int offset = (int) Collections.min(Arrays.asList(split));//for the question it wll always be one but for general range this will be more flexible.
+        int offset =  Collections.min(Arrays.asList(split));//for the question it wll always be one but for general range this will be more flexible.
         System.out.println(" echo array " + Arrays.toString(split));
         boolean[] buckets = new boolean[split.length + 1];//one larger as there will be a hole
-        for (int x = 0; x < split.length; x++) {
-            buckets[split[x] - offset] = true;
+        for (Integer item : split) {
+            buckets[item - offset] = true;
         }//insert to buckets
         int y = 0;
         while (buckets[y]) {
